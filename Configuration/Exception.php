@@ -8,13 +8,6 @@
 
 namespace Framework\Configuration {
 
-    class Exception extends \Framework\Core\Exception {
-    }
-}
-
-namespace Framework\Configuration\Exception {
-    class Implementation extends \Framework\Configuration\Exception {
-    }
-    class Argument extends \Framework\Configuration\Exception {}
+    class Exception extends \Exception {}
 }
 

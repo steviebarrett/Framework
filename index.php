@@ -22,6 +22,7 @@ error_reporting(E_ALL);
 set_include_path("../");    //Framework isn't in the include path - index.php will need to be one level up
 
 echo "Hello world";
+
 /*
  * Autoload function for now
  * TODO: Move to class
@@ -44,6 +45,14 @@ spl_autoload_register("autoload");
 /*
  * ///
  */
+
+
+$config = new \Framework\Configuration(array(
+    "type" => "ini"
+));
+$config = $config->initialize();
+
+
 
 /**
  * Class Controller

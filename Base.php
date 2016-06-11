@@ -27,7 +27,7 @@ namespace Framework {
                     $key = ucfirst($key);
                     $method = "set{$key}";
                     $this->$method($value);
-            }
+                 }
             }
         }
 
@@ -61,7 +61,7 @@ namespace Framework {
                     if(empty($meta["@readwrite"]) && empty($meta["@write"])) {
                         throw $this->_getExceptionForReadOnly($normalized);
                     }
-                    $this->$$property = $arguments[0];
+                    $this->$property = $arguments[0];
                     return $this;
                 }
             }
