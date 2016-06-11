@@ -46,18 +46,11 @@ spl_autoload_register("autoload");
  * ///
  */
 
+/*
+ * Configuration file and code test
+ */
 $config = new \Framework\Configuration\Driver\Ini();
 $myConf = $config->parse("_configuration");
-/*
-$config = new \Framework\Configuration(array(
-    "type" => "ini"
-));
-$config = $config->initialize();
-*/
-//$host = (array)$config;
-//echo "<h2>DB Host: " . {$host} . "</h2>";
-
-echo "<table>";
 print_r($myConf);
 echo "<h2>host: {$myConf->database->default->host} </h2>";
 
@@ -84,6 +77,7 @@ class Controller {
 
 }
 
+//Inspector test
 $insp = new \Framework\Inspector(Controller);
 
 print_r($insp->getClassMeta());
