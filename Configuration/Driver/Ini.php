@@ -34,7 +34,7 @@ class Ini extends Configuration\Driver {
         if (!isset($this->_parsed[$path])) {
             $config = array();
             ob_start();
-            include("Ini.php");
+            include("{$path}.ini");
             $string = ob_get_contents();
             ob_end_clean();
             $pairs = parse_ini_string($string);
