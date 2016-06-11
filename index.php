@@ -1,5 +1,16 @@
 <?php
 
+echo <<<HTML
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+    
+        <title>! Framework !</title>
+    </head>
+HTML;
+
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
 /**
@@ -8,7 +19,7 @@ error_reporting(E_ALL);
  * Date: 29/05/2016
  * Time: 18:16
  */
-set_include_path("../");
+set_include_path("../");    //Framework isn't in the include path - index.php will need to be one level up
 
 echo "Hello world";
 /*
@@ -60,7 +71,11 @@ class Controller {
 $insp = new \Framework\Inspector(Controller);
 
 print_r($insp->getClassMeta());
-//print_r($insp->getMethodMeta("authenticate"));
-//print_r($insp->getClassProperties());
+print_r($insp->getMethodMeta("authenticate"));
+print_r($insp->getClassProperties());
 //print_r($insp->getPropertyMeta("$_secret"));
 
+
+echo <<<HTML
+</html>
+HTML;
