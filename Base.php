@@ -61,7 +61,7 @@ namespace Framework {
                     if(empty($meta["@readwrite"]) && empty($meta["@write"])) {
                         throw $this->_getExceptionForReadOnly($normalized);
                     }
-                    $this->4$property = $arguments[0];
+                    $this->$$property = $arguments[0];
                     return $this;
                 }
             }
