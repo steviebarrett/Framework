@@ -13,15 +13,23 @@ HTML;
 
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
-/**
- * Created by PhpStorm.
- * User: stephen
- * Date: 29/05/2016
- * Time: 18:16
- */
 set_include_path("../");    //Framework isn't in the include path - index.php will need to be one level up
 
 echo "Hello world";
+
+/*
+define('MEMCACHED_HOST', '127.0.0.1');
+define('MEMCACHED_PORT', '11211');
+$memcache = new Memcached;
+$cacheAvailable = $memcache->addServer(MEMCACHED_HOST, MEMCACHED_PORT);
+
+$memcache->set("name", "stevie");
+
+$name = $memcache->get("name");
+
+print_r($name);
+die();
+*/
 
 /*
  * Autoload function for now
@@ -45,6 +53,24 @@ spl_autoload_register("autoload");
 /*
  * ///
  */
+
+/*
+ * Cache test
+ */
+function getFriends() {
+    $cache = new Framework\Cache(array("type" => "memcached"));
+    $driver = $cache->initialize();
+    $driver->connect();
+
+    $friends = $driver->get("name");
+    if (empty($friends)) {
+        $driver->set("name", "stevie");
+    }
+    return $friends;
+}
+print_r(getFriends());
+print_r(getFriends());
+die();
 
 /*
  * Configuration file and code test
